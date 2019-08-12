@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible">
+	<title>PRACTICE BOI</title>
+	<script src="vue.js"></script>
+</head>
+<style>
+	#effect {
+		border: 1px solid black;
+	}
+
+	#inner-bar-load {
+		height: 16px;
+		background-color: blue;
+		position: relative;
+	}
+
+	.highlight {
+		background-color: red;
+		width: 200px !important;
+	}
+
+	.shrink {
+		width: 50px !important;
+	}
+
+	.gray {
+		background-color: gray
+	}
+
+	.blue {
+		background-color: blue
+	}
+
+	.black {
+		background-color: black
+	}
+
+	.yellow {
+		background-color: yellow
+	}
+
+	.font {
+		font-size: 60px
+	}
+
+	.float-right {
+		float:right
+	}
+
+	.float-center {
+		float:center
+	}
+
+	.progress-bar {
+		width: 300px;
+		height: 15px;
+		position:fixed
+	}
+
+</style>
+<body>
+
+
+
+
+
+<!-- <div id="exercise">
+	<div>
+		<button v-on:click="alert">Show Alert</button>
+	</div>
+	<div>
+		<input type="text" v-on:keyup="value = $event.target.value">
+		<p v-once>{{ value }}</p>
+	</div>
+	<div>
+		<input type="text" v-on:keydown.enter="keydown2">
+		<p>{{ value }}</p>
+		<span>Check out this link - </span>
+		<a v-bind:href="link">GOOG</a>
+		<p v-html="dynamicLink"></p>
+		
+	</div>
+</div> -->
+<!-- <p>_________________________________________________________________</p>
+
+
+
+
+
+
+
+
+<div id="reactive"> -->
+	<!-- 1) Show a "result" of 'not there yet' as long as "value" is not equal to 12 - you can change "value" with the buttons. Print 'done' once you did it -->
+	<!-- <div>
+		<p>Current Value: {{ value }}</p>
+		<button @click="value += 5">Add 5</button>
+		<button @click="value += 1">Add 1</button>
+		<p>{{ result }}</p>
+	</div> -->
+	<!-- 2) Watch for changes in the "result" and reset the "value" after 5 seconds (hint: setTimeout(..., 5000) -->
+	<!-- <div>
+		<input type="text">
+		<p>{{ value }}</p>
+	</div>
+</div> -->
+
+
+
+
+
+<!-- <div id="styling"> -->
+	<!-- 1) Start the Effect with the Button. The Effect should alternate the "highlight" or "shrink" class on each new setInterval tick (attach respective class to the div with id "effect" below) -->
+	<!-- <div>
+		<button @click="startEffect">Start Effect</button>
+		<div id="effect" :class="effects"></div>
+	</div> -->
+	<!-- 2) Create a couple of CSS classes and attach them via the array syntax -->
+	<!-- <div :class= "[color,'font']">I got no class :(</div> -->
+	<!-- 3) Let the user enter a class (create some example classes) and attach it -->
+	<!-- <div>
+		<input type="text" v-model="color">
+		<div></div>
+	</div> -->
+	<!-- 4) Let the user enter a class and enter true/ false for another class (create some example classes) and attach the classes -->
+	<!-- <div>
+		<input type="text">
+		<input type="text">
+		<div></div>
+	</div> -->
+	<!-- 5) Repeat 3) but now with values for styles (instead of class names). Attach the respective styles.  -->
+	<!-- <div>
+		<input type="text">
+		<div></div>
+	</div> -->
+	<!-- 6) Create a simple progress bar with setInterval and style bindings. Start it by hitting the below button. -->
+	<!-- <div>
+		<button @click="startProgress()">Start Progress</button>
+		<div id="effect" :class="['progress-bar']"></div>
+			<div id="inner-bar-load" :style="innerBar"></div>
+	</div>
+</div> -->
+
+
+
+
+
+
+<!-- <div id="conditionals"> -->
+	<!-- 1) Hook up the button to toggle the display of the two paragraphs. Use both v-if and v-show and inspect the elements to see the difference -->
+	<!-- <div>
+		<button @click="show = !show">Toggle</button>
+		<p v-if="show">You either see me ...</p>
+		<p v-else>...or me</p>
+		<p v-show="show">You either see me ...</p>
+		<p v-show="!show">...or me</p>
+	</div> -->
+	<!-- 2) Output an <ul> of array elements of your choice. Also print the index of each element. -->
+	<!-- <ul v-for="(names, i) in array">
+		<li>{{names}} is number {{i+1}} on the name list</li>
+	</ul> -->
+	<!-- 3) Print all key-value pairs of the following object: {title: 'Lord of the Rings', author: 'J.R.R. Tolkiens', books: '3'}. Also print the index of each item. -->
+	<!-- <ul v-for="(stuff, key, i) in myObject">
+		<li>The {{key}} is {{stuff}} and is {{i+1}} on the list</li>
+	</ul> -->
+	<!-- 4) Print the following object (only the values) and also create a nested loop for the array: {name: 'TESTOBJECT', data: [1.67, 1.33, 0.98, 2.21]} (hint: use v-for and v-if to achieve this) -->
+
+	<!-- <ul>
+		<li v-for="(value, key) in testData">
+			<span v-if="key == 'data'">{{ key }} : 
+				<span v-for="(data, i) in value"> {{ data }} is at index {{ i }}, </span>
+			</span>
+			<span v-else>{{key}}: {{value}}</span>
+		</li>
+	</ul>
+</div> -->
+
+</body>
+<script>
+
+// Conditionals and loops!
+// new Vue({
+//   el: '#conditionals',
+//   data: {
+// 	show: false,
+// 	array: ['Max', 'Anna', 'Chris', 'Manu'],
+// 	myObject: {
+// 	  title: 'Lord of the Rings',
+// 	  author: 'J.R.R. Tolkiens',
+// 	  books: '3'
+// 	},
+// 	testData: {
+// 	  name: 'TESTOBJECT', 
+// 	  id: 10,
+// 	  data: [1.67, 1.33, 0.98, 2.21]
+// 	}
+//   }
+// });
+
+
+
+
+
+
+// Basic Vue practice
+
+// new Vue({
+// 	el: '#exercise',
+// 	data: {
+// 		value: 'Chea BOIIIII',
+// 		link: 'http://www.google.com',
+// 		dynamicLink: '<a href="http://www.youtube.com">YOUTUBE</a>'
+// 	},
+// 	methods: {
+// 		alert: function() {
+// 			alert('what up')
+// 		},
+// 		keydown: function(event) {
+// 			this.value = event.target.value
+// 		},
+// 		keydown2: function(event) {
+// 			console.log(event)
+// 			this.value = event.target.value
+// 		} 
+// 	}
+// });
+
+
+
+
+
+
+
+
+
+// Reactive properties
+
+// new Vue({
+// 	el: '#reactive',
+// 	data: {
+// 		value: 0
+// 	},
+// 	computed: {
+// 		result: function() {
+// 			return this.value == 12 ? 'Nailed it' : 'Not at the right number'
+// 		}
+// 	},
+// 	watch: {
+// 		result: function() {
+// 			var vm = this
+// 			setTimeout(function(){
+// 				vm.value = 0
+// 			},3000)
+// 		}
+// 	}
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+// STYLING
+
+// new Vue({
+// 	el: '#styling',
+// 	data: {
+// 		effects: 'highlight',
+// 		color: 'yellow',
+// 		innerBar: {
+// 			width: 0
+// 		}
+// 	},
+// 	methods: {
+// 		startEffect: function() {
+// 			var vm = this
+// 			setInterval(function() {
+// 				vm.effects = vm.effects == 'highlight' ? 'shrink' : 'highlight'
+// 			}, 1000)
+// 		},
+// 		startProgress: function() {
+// 			var vm = this
+// 			var widthUp = 0
+// 			setInterval(function() {
+// 				widthUp += 5
+// 				vm.innerBar.width = widthUp + 'px'
+// 			}, 1000)
+// 		}
+// 	},
+// 	computed: {
+// 		classes: function() {
+// 			return {
+// 				yellow: vm.yellow
+// 			}
+// 		}
+// 	},
+// 	watch: {
+// 		result: function() {
+// 			var vm = this
+// 			setTimeout(function(){
+// 				vm.value = 0
+// 			},3000)
+// 		}
+// 	}
+// });
+
+</script>
+</html>
