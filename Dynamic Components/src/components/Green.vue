@@ -1,8 +1,15 @@
 <template>
-    <div></div>
+    <div>
+        <slot></slot>
+    </div>
 </template>
 
 <script>
+export default {
+    destroyed() {
+        console.log('destroyed')
+    }
+}
 
 </script>
 

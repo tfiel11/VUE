@@ -1,7 +1,6 @@
 <template>
     <div>
-        <slot name='gangstas'></slot>
-        <slot name='buttoned'></slot>
+        <slot></slot>
     </div>
 </template>
 

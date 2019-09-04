@@ -3,17 +3,16 @@
         <div class="row">
             <div class="col-xs-12">
                 <br>
-                <button class="btn btn-primary">Load Blue Template</button>
-                <button class="btn btn-success">Load Green Template</button>
-                <button class="btn btn-danger">Load Red Template</button>
+                <button @click="template('app-blue')" class="btn btn-primary">Load Blue Template</button>
+                <button @click="template('app-green')" class="btn btn-success">Load Green Template</button>
+                <button @click="template('app-red')" class="btn btn-danger">Load Red Template</button>
                 <hr>
-                <component :is="chosen">
-                    
-                </component>
-                
-                
-                
-                
+                <keep-alive>    
+                    <component :is="chosen">
+                        <p>This is the {{chosen.slice(4)}} component.</p>
+                    </component>
+                </keep-alive>
+
                 <!-- <app-blue>
                     <p slot="gangstas">WHAT UP GANSTAS</p>
                     <button slot="buttoned">I'm a button</button>
@@ -33,13 +32,19 @@
     export default {
         data: function() {
             return {
-                chosen: 'app-blue'
+                chosen: 'app-blue',
+                divColor: 'Blue'
             }
         },
         components: {
-            appBlue: Blue,
+            'app-blue': Blue,
             appGreen: Green,
             appRed: Red
+        },
+        methods: {
+            template(component) {
+                this.chosen = component
+            }
         }
     }
 </script>
